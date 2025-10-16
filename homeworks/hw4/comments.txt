@@ -1,0 +1,186 @@
+Question 1b (1 pt) 
+   For which sentences, if any, does your grammar produce more
+   than one parse? Explain whether this is as it should be, or not.
+   If there are sentences with multiple parses, indicate in your explanation
+   which of these parses corresponds to the most likely interpretation of
+   the sentence, according to you, and why
+
+Answer:
+   13 sentences had one parse, 2 had two parses. The 2 sentences that had two parses were, and their parses:
+   - "research fans hope for spinal injuries"
+    - ambiguity:  one interpretation is that research fans are hoping to get/foro spinal injuries, and other is that, even not named,
+                  there is some hope for spinal injuries, and research fans are interested in that hope.
+                   It comes down to parsing "hope" as either a noun or a verb.
+                   so, either:
+                     S ->  NP [research fans] PP [hope for spinal injuries]
+                     S -> NP [research fans] NP [hope] PP [for spinal injuries]
+    - morer likely: second one, because it makes more sense that there is some hope for spinal injuries, 
+    than that research fans are hoping to get spinal injuries.
+   - "sports fans hope for likes"
+      - ambiguity: one interpretation is that sports fans are hoping to get likes, and other is that sports fans
+                  have some hope for likes.
+                  so, either:
+                     S ->  NP [sports fans] PP [hope for likes]
+                     S -> NP [sports fans] VP [hope] PP [for likes]
+      - more likely: we believe the first one is more natural, it’s more common to say that sports fans are hoping 
+         for likes than to talk about a “hope for likes” that they possess.
+
+
+Question 2a (1 pt) Convert the grammar to Chomsky Normal Form (CNF).
+
+Answer:
+
+Grammar rules
+S → NP VP   
+VP → V NP
+VP → V NP PP --not in CNF
+NP → Nominal  --not in CNF
+NP → Det Nominal
+NP → Nominal PP
+NP → Det Nominal PP  --not in CNF
+Nominal → Noun  --not in CNF
+PP → P NP
+
+Lexicon
+Noun → students, problems, AI
+P → with, in
+V → solve, like, hate
+Det → a, the
+
+-----------------------
+Chomsky normal form CNF  version of the grammar
+-----------------------
+
+S -> NP VP
+VP -> V NP
+VP -> V VP1
+VP1 -> NP PP
+
+NP -> students | problems | AI
+NP -> Det Nominal
+NP -> Nominal PP
+NP -> Det NP1
+NP1 -> Nominal PP
+
+PP -> P NP
+
+Nominal -> students | problems | AI
+V -> solve | like | hate
+P -> with | in
+Det -> a | the
+
+_________________________________________________________________________________________________________________________
+Question 2b (2 pt) Using the CNF version of the grammar, draw a CKY parse table
+for the sentence students solve problems with AI. For the last column,
+show step-by-step how it is filled, in the same way as is done in Figure
+18.14 of J&M Ch. 18.
+
+Answer:
+
+__________________________________________________________________________________________________________________________
+Question 2c (0.5 pt) Draw the parse tree or parse trees (with root S) that can be
+derived from the filled CKY parse table.
+
+Answer:
+
+a) NP [students] VP [solve NP [problems PP [with AI]]]
+            S
+         /     \
+       NP      VP
+      |        |      \
+   students    V      NP
+               |     /   \
+             solve  Nominal    PP
+                    |         /  \
+                problems      P   NP
+                              |   |
+                              with  AI
+
+b) NP [students] VP[ solve [NP problems with AI]]
+                 S
+               /   \
+             NP     VP
+            |      /   \
+        students  V     VP1
+                 |     /    \
+              solve   NP     PP
+                      |     /  \
+                 problems  P    NP
+                             |    |
+                            with  AI
+
+
+_________________________________________________________________________________________________________________________
+Several dependency parsers are available as part of NLP toolkits, such as NLTK1 or the Stanford CoreNLP package2
+In this exercise we try out the dependency parser of SpaCy, another open-source NLP software library. We
+use the web demo of its dependency visualizer: https://explosion.ai/demos/displacy
+
+
+Question  3a (0.5 pt) Use the web demo to parse the ambiguous sentence "I shot a man in clown shoes."
+                     You have to uncheck the “Merge phrases” checkbox.
+                     What do you think about the way this sentence was parsed? Is it a
+                     good parse or not? Why (or why not)?
+Answer:
+We do think it is a good dependancy parse. It assign phrase "in clown shoes" to the noun man, meaning
+sibject "I" shot a person who was wearing clown shoes. This is one of the two possible meanings of the sentence.
+The other meaning would be that "I" was wearing clown shoes when "I shot a  man".
+
+______________________________________________________________________________________________________________________
+Question 3b (1 pt) Now, use the web demo to parse the following variations of the
+previous sentence. Keep the “merge phrases” checkbox unchecked.
+   1. I shot an elephant in clown shoes
+   2. I shot a man in my clown shoes
+   3. I love an elephant in my clown shoes
+   4. women hate men in clown shoes
+   5. men hate women in clown shoes
+Discuss the differences between the dependency parses SpaCy assigns
+to these sentences. Do you think they are good parses? Why (not)?
+Can you think of reasons for the different parses?
+
+Answer:
+   1. I shot an elephant in clown shoes
+   - > parse as : I shot an elephant that was wearing clown shoes
+   2. I shot a man in my clown shoes
+   - > parsed as:  I shot a man while I was wearing my clown shoes.
+   3. I love an elephant in my clown shoes
+   - > parsed as: I love an elephant while wearing my clown shoes.
+   4. women hate men in clown shoes
+   - > parsed as: women hate men that are wearing clown shoes.
+   5. men hate women in clown shoes
+   - > parsed as: men hate women while wearing clown shoes.
+
+They are good parses because they all make sense and are one of the possible meanings of the sentences. Therefore, they are
+all syntactically correct. Issue is that probable meaning of the sentences is not the one that was parsed. We
+would therefore argue that semantically they are not good parses. First sentence makes no sense, as interpreted
+by the online tool. Another issue is that 4th and 5th sentence are parsed differently, even though they are
+syntactically identical. The only difference is the subject and object are swapped. This should not change the parse.
+The reason for the different parses could be that the model was trained on a corpus where men are more often being
+described wearing something (eg in a black suit). This is a bias that presents a problem, since no gender swap should
+yield a different parse.
+To conclude, the tool is good at parsing syntactically, but not semantically. Issues arise due to training data/lexicon
+bias, NP/VP attachment problems and possessiveness placed outside their usual context.
+
+_________________________________________________________________________________________________________________________
+Question 3c (2 pt) Take the dependency parse produced by SpaCy for I shot a
+man in clown shoes (from 3a). Provide the trace of this dependency
+parse as it would be produced by a transition-based, arc-standard
+dependency parser. Use the notation that is also used in Figure 19.6
+of J&M Chapter 19.
+
+Answer:
+
+0  [root][I shot a man in clown shoes]  SHIFT
+1  [root I][shot a man in clown shoes]  SHIFT
+2  [root I shot][a man in clown shoes]  LEFT-ARC  (shot → I)
+3  [root shot][a man in clown shoes]    SHIFT
+4  [root shot a][man in clown shoes]    SHIFT
+5  [root shot a man][in clown shoes]    LEFT-ARC  (man → a)
+6  [root shot man][in clown shoes]      SHIFT
+7  [root shot man in][clown shoes]      SHIFT
+8  [root shot man in clown][shoes]      SHIFT
+9  [root shot man in clown shoes]       LEFT-ARC  (shoes → clown)
+10 [root shot man in shoes]             RIGHT-ARC (in → shoes)
+11 [root shot man in]                  RIGHT-ARC (man → in)
+12 [root shot man][]                    RIGHT-ARC (shot → man)
+13 [root shot][]                       RIGHT-ARC (root → shot)
+14 [root][]                            DONE

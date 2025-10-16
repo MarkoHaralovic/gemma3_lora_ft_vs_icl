@@ -1,0 +1,348 @@
+research fans hope for spinal injuries
+
+1:
+                 S_1 
+        __________|___________
+      NP_2                 VP_7 
+        |          __________|__________
+    Nominal_3   Verb_8               PP_9+ 
+    ____|____    hope         _________|__________
+Nominal1_4 Noun_6      Preposition_10+        NP_11+ 
+    |     fans               for                 |
+ Noun_5+                                    Nominal_12+ 
+research                                    _____|______
+                                      Adjective_13+ Nominal1_14+ 
+                                         spinal        |
+                                                   Noun_15+ 
+                                                   injuries 
+
+S:
+[ cat:   S ]
+
+
+2:
+             S_16 
+    ___________|____________
+  NP_17                  VP_19 
+    |        ______________|______________
+Nominal_18 Verb_20 NP_21               PP_9+ 
+    |      fans      |          _________|__________
+ Noun_5+        Nominal_22 Preposition_10+      NP_11+ 
+research             |         for                 |
+                  Noun_23                     Nominal_12+ 
+                   hope                       _____|______
+                                        Adjective_13+ Nominal1_14+ 
+                                           spinal        |
+                                                     Noun_15+ 
+                                                     injuries 
+
+S:
+[ cat:   S ]
+
+2 parses found
+
+spinal injuries need research
+
+1:
+                 S 
+         ________|_________
+        NP               VP 
+         |            ____|____
+      Nominal       Verb     NP 
+     ____|_____     need      |
+ Adjective Nominal1        Nominal 
+  spinal      |               |
+            Noun            Noun 
+          injuries        research 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+sports fans like research
+
+1:
+             S 
+      _______|________
+     NP             VP 
+      |          ____|____
+   Nominal     Verb     NP 
+   ___|____    like      |
+Nominal1 Noun         Nominal 
+   |    fans             |
+ Noun                  Noun 
+sports               research 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+sports fans fear spinal injuries
+
+1:
+              S 
+      ________|_________
+     NP               VP 
+      |          ______|_______
+   Nominal     Verb          NP 
+   ___|____    fear           |
+Nominal1 Noun              Nominal 
+   |    fans              ____|_____
+ Noun                 Adjective Nominal1 
+sports                 spinal      |
+                                 Noun 
+                               injuries 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+sports research costs money
+
+1:
+              S 
+       _______|________
+      NP             VP 
+       |           ___|____
+    Nominal      Verb    NP 
+   ____|____     costs    |
+Nominal1 Noun          Nominal 
+   |   research           |
+ Noun                   Noun 
+sports                  money 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+the fan fans the researcher with a fan
+
+1:
+                    S 
+      ______________|______________
+     NP                          VP 
+   ___|____      _________________|_________________
+  Det  Nominal Verb        NP                     PP 
+  the     |    fans     ____|_____           ______|______
+        Noun           Det    Nominal   Preposition     NP 
+         fan           the       |         with       ___|____
+                               Noun                  Det  Nominal 
+                            researcher                a      |
+                                                           Noun 
+                                                            fan 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+researchers hope for money
+
+1:
+              S 
+      ________|________
+     NP              VP 
+      |        _______|_______
+   Nominal   Verb           PP 
+      |      hope        ____|_____
+    Noun            Preposition  NP 
+ researchers            for       |
+                               Nominal 
+                                  |
+                                Noun 
+                                money 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+the fan needs sports research
+
+1:
+              S 
+      ________|________
+     NP              VP 
+   ___|____      _____|______
+  Det  Nominal Verb        NP 
+  the     |    needs        |
+        Noun             Nominal 
+         fan            ____|____
+                    Nominal1  Noun 
+                        |   research 
+                      Noun 
+                     sports 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+the researcher needs money
+
+1:
+               S 
+       ________|_________
+      NP               VP 
+   ____|_____        ___|____
+  Det    Nominal   Verb    NP 
+  the       |      needs    |
+          Noun           Nominal 
+       researcher           |
+                          Noun 
+                          money 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+the fan likes sports
+
+1:
+             S 
+      _______|_______
+     NP            VP 
+   ___|____      ___|____
+  Det  Nominal Verb    NP 
+  the     |    likes    |
+        Noun         Nominal 
+         fan            |
+                      Noun 
+                     sports 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+fans like likes on social media
+
+1:
+            S 
+   _________|__________
+  NP                 VP 
+   |      ____________|____________
+Nominal Verb    NP               PP 
+   |    like     |         _______|________
+ Noun         Nominal Preposition        NP 
+ fans            |        on              |
+               Noun                    Nominal 
+               likes                  ____|____
+                                  Adjective Nominal1 
+                                   social     |
+                                            Noun 
+                                            media 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+sports fans hope for likes
+
+1:
+              S_1 
+      _________|__________
+    NP_2               VP_7 
+      |          ________|_________
+  Nominal_3   Verb_8            PP_9+ 
+   ___|____    hope         ______|______
+Nominal1_4 Noun_6    Preposition_10+ NP_11+ 
+   |    fans               for          |
+Noun_5+                            Nominal_12+ 
+sports                                  |
+                                    Noun_13+ 
+                                      likes 
+
+S:
+[ cat:   S ]
+
+
+2:
+           S_14 
+   __________|__________
+ NP_15               VP_17 
+   |       ____________|_____________
+Nominal_16 Verb_18 NP_19          PP_9+ 
+   |     fans      |          ______|______
+Noun_5+       Nominal_20 Preposition_10+ NP_11+ 
+sports             |         for          |
+                Noun_21              Nominal_12+ 
+                 hope                     |
+                                      Noun_13+ 
+                                        likes 
+
+S:
+[ cat:   S ]
+
+2 parses found
+
+fans need money for sports
+
+1:
+           S 
+   ________|_________
+  NP               VP 
+   |      __________|___________
+Nominal Verb    NP            PP 
+   |    need     |         ____|_____
+ Noun         Nominal Preposition  NP 
+ fans            |        for       |
+               Noun              Nominal 
+               money                |
+                                  Noun 
+                                 sports 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+the social fan likes the researcher
+
+1:
+                    S 
+         ___________|____________
+        NP                     VP 
+   ______|_______          _____|______
+  Det        Nominal     Verb        NP 
+  the       ____|____    likes    ____|_____
+        Adjective Nominal1       Det    Nominal 
+         social     |            the       |
+                  Noun                   Noun 
+                   fan                researcher 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+researchers fear the media
+
+1:
+             S 
+      _______|_______
+     NP            VP 
+      |        _____|_____
+   Nominal   Verb       NP 
+      |      fear     ___|____
+    Noun             Det  Nominal 
+ researchers         the     |
+                           Noun 
+                           media 
+
+S:
+[ cat:   S ]
+
+1 parse found
+
+
+File parsing statistics: 15 sentences read
+          13 sentences with 1 parse
+           2 sentences with 2 parses
+15 of 15 (100.0 %) parsed at least once

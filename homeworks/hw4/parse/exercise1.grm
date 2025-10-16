@@ -1,0 +1,46 @@
+;Group 30 – members: Marko Haralović, Sounic Akkaraju
+Rule 
+S -> NP VP
+
+; ref appendix 17.3
+Rule
+S -> VP
+
+Rule
+S -> Aux NP VP
+
+Rule
+NP -> Nominal
+
+Rule
+NP -> Det Nominal
+
+Rule
+Nominal -> Noun 
+
+Rule
+Nominal -> Adjective Nominal1
+
+Rule 
+Nominal -> Nominal1 Noun
+
+Rule
+Nominal1 -> Noun
+
+Rule
+Nominal1 -> Adjective Nominal1
+
+Rule 
+VP -> Verb
+
+Rule
+VP -> Verb NP
+
+Rule
+VP -> Verb NP PP 
+
+Rule
+VP -> Verb PP
+
+Rule 
+PP -> Preposition NP

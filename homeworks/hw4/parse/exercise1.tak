@@ -1,0 +1,4 @@
+load grammar exercise1
+load lexicon exercise1
+file parse sentences.txt out.txt
+
