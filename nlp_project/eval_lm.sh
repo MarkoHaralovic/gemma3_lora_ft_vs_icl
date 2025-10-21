@@ -9,9 +9,3 @@ lm-eval \
   --batch_size auto \
   --seed 42 \
   --output_path results \
- 
-pkill -f "vllm" || true
-pkill -f "engine_core" || true
-pkill -f "torchrun" || true
-sleep 2
-fuser -k /dev/nvidia* || true
