@@ -116,7 +116,7 @@ LoRA adapters introduce negligible overhead (TPOT changes of -1.8% to -8.2%). In
 
 BERT achieves 93.7% accuracy on AG News, outperforming all Gemma variants. However, it performs near random on other classification tasks (48.6% on SST-2, 39.8% on BoolQ) and reasoning tasks, confirming no generalization without additional fine-tuning.
 
-## Deployment Guidance
+## Deployment consideration
 
 **Single-task production**: Use BERT/DistilBERT for maximum efficiency (190x faster than Gemma3-270M) and highest in-domain accuracy.
 
@@ -124,4 +124,4 @@ BERT achieves 93.7% accuracy on AG News, outperforming all Gemma variants. Howev
 
 **Task-specific optimization**: Use LoRA adapters in multi-tenant serving for maximum in-domain quality, but expect 20% reasoning degradation on out-of-distribution queries.
 
-**Latency-critical applications**: Minimize ICL context length. LoRA adds no inference overhead compared to base models.
+**Latency critical applications**: Minimize ICL context length. LoRA adds no inference overhead compared to base models.
