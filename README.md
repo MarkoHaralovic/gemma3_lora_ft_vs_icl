@@ -23,7 +23,7 @@
 
 ## Performance Results
 
-### Gemma3-270M Classification
+### Gemma3-270M Classification - accuracy
 
 | Model | k | AG News | SST-2 | BoolQ | Mean |
 |-------|---|---------|-------|-------|------|
@@ -33,7 +33,7 @@
 | LoRA-CLS | 10 | 0.81 | 0.67 | 0.41 | 0.63 |
 | LoRA-QA | 0 | 0.26 | 0.51 | 0.51 | 0.43 |
 
-### Gemma3-270M Question Answering (Exact Match)
+### Gemma3-270M Question Answering - exact match
 
 | Model | k | SQuAD v2 | TriviaQA | NQ-Open | Mean |
 |-------|---|----------|----------|---------|------|
@@ -43,7 +43,7 @@
 | LoRA-QA | 0 | 0.45 | 0.001 | 0.02 | 0.16 |
 | LoRA-QA | 10 | 0.45 | 0.003 | 0.01 | 0.15 |
 
-### Gemma3-270M Reasoning
+### Gemma3-270M Reasoning - accuracy
 
 | Model | k | HellaSwag | ARC-Easy | PIQA | Social IQa | Mean |
 |-------|---|-----------|----------|------|------------|------|
@@ -52,7 +52,7 @@
 | LoRA-CLS | 0 | 0.35 | 0.52 | 0.66 | 0.38 | 0.48 |
 | LoRA-QA | 0 | 0.31 | 0.46 | 0.60 | 0.39 | 0.44 |
 
-### Gemma3-4B Performance (Base Model Only)
+### Gemma3-4B Performance (Base Model Only) - accuracy
 
 | Task | k | Performance | Improvement vs k=0 |
 |------|---|-------------|-------------------|
