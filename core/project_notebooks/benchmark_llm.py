@@ -490,13 +490,13 @@ def append_results_to_csv(csv_path: str, row_data: Dict[str, Any]):
 
 
 def get_bnb_config(model_id):
-   if model_id == "google/gemma-3-12b-it":
+   if model_id == "google/gemma-3-4b-it":
       return BitsAndBytesConfig(
          load_in_8bit=True,
          llm_int8_threshold=6.0,
          llm_int8_has_fp16_weight=False,
       )
-   if model_id == "google/gemma-3-27b-it":
+   if model_id == "google/gemma-3-27b-it" or model_id == "google/gemma-3-12b-it" :
       return BitsAndBytesConfig(
          load_in_4bit=True,
          bnb_4bit_compute_dtype=torch.bfloat16,
@@ -509,11 +509,13 @@ def get_bnb_config(model_id):
 def load_adapter(base_model_id, adapter_id, gpu_id):
    cfg = PeftConfig.from_pretrained(adapter_id)
    base_id = cfg.base_model_name_or_path or base_model_id
+   bnb_cfg = get_bnb_config(model_id)
 
    tok = AutoTokenizer.from_pretrained(base_id, use_fast=True, trust_remote_code=True)
    base = AutoModelForCausalLM.from_pretrained(
       base_id,
       torch_dtype=torch.bfloat16,
+      quantization_config=bnb_cfg,
       device_map={"": gpu_id},
       trust_remote_code=True,
    )
@@ -531,14 +533,6 @@ gemma3_lora_adapters = {
     "google/gemma-3-1b-it" :  {
         "classification" : "Mhara/google_gemma-3-1b-it_ft_ag_news_v3",
         "question_answering" : "Mhara/google_gemma-3-1b-it_ft_squad_v2"
-    },
-    "google/gemma-3-12b-it" :  {
-        "classification" : "Mhara/google_gemma-3-12b-it_ft_ag_news",
-        "question_answering" : "Mhara/google_gemma-3-12b-it_ft_squad_v2"
-    },
-    "google/gemma-3-27b-it" :  {
-        "classification" : "Mhara/google_gemma-3-27b-it_ft_ag_news",
-        "question_answering" : "Mhara/google_gemma-3-27b-it_ft_squad_v2"
     },
     "google/gemma-3-4b-it": {
         "classification": "Mhara/google_gemma-3-4b-it_ft_ag_news",
@@ -597,10 +591,7 @@ clean_gpu()
 
 for model_id, adapters in gemma3_lora_adapters.items():
    print(f"model_id : {model_id}")
-   if model_id in ["google/gemma-3-12b-it", "google/gemma-3-27b-it"]:
-      bnb_cfg = get_bnb_config(model_id)
-   else:
-      bnb_cfg = None
+   bnb_cfg = get_bnb_config(model_id)
    try:
       if any_missing_for(model_id, "base_model", "classification"):
          base_model = AutoModelForCausalLM.from_pretrained(
@@ -749,3 +740,4 @@ for model_id, adapters in gemma3_lora_adapters.items():
       except Exception as e:
          print(e)
          continue
+
