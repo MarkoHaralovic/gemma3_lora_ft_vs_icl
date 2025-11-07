@@ -1,4 +1,8 @@
-# In-Context Learning vs LoRA vs BERT: Low-Resource Adaptation Study
+# Exploring In-Context Learning and Efficient LoRA Fine-Tuning of Gemma3 Models versus BERT Fine-Tuning in Low-Resource Environments
+
+[Article](https://github.com/MarkoHaralovic/nlp_utwente/blob/main/core/article/icl_vs_lora_vs_bert_article.pdf)
+
+all results can be found in the article.
 
 ## Model Inventory
 
