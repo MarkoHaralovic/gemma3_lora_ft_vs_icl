@@ -104,19 +104,19 @@ all results can be found in the article.
 
 ## Conclusions
 
-### 1. In-Domain Gains vs Cross-Domain Trade-offs
+### 1. In-domain gains vs cross-domain perfomance drops
 
 LoRA fine-tuning improves in-domain performance substantially (72% vs 33% on AG News for 270M model), but this comes at the cost of cross-domain generalization. LoRA-adapted models show up to 20% degradation on reasoning tasks compared to base instruction-tuned models. Fine-tuning on one task domain actively degrades performance on other domains, including within the same task category.
 
-### 2. ICL Scales with Model Size
+### 2. ICL gains scale with model size, lost in LoRA finetuned models
 
 Larger models benefit more from in-context learning. Gemma3-4B with k=10 achieves 12% classification improvement, 13% QA improvement, and 4% reasoning improvement over k=0. At this scale, ICL matches or exceeds smaller LoRA-tuned models on non-target tasks while maintaining generalization. Smaller models show inconsistent ICL benefits, suggesting minimum capacity requirements.
 
-### 3. Efficiency Dominated by Context Length, Not LoRA
+### 3. Efficiency affected by context length, and not by LoRA
 
 LoRA adapters introduce negligible overhead (TPOT changes of -1.8% to -8.2%). In contrast, increasing ICL context from k=0 to k=25 raises TPOT by 26-40% and reduces throughput by 21-28%. BERT remains most efficient for single tasks (3837 tps vs 12-20 tps for Gemma models) but shows zero cross-task transfer.
 
-### 4. BERT Excels at Single Tasks Only
+### 4. BERT best at a single task
 
 BERT achieves 93.7% accuracy on AG News, outperforming all Gemma variants. However, it performs near random on other classification tasks (48.6% on SST-2, 39.8% on BoolQ) and reasoning tasks, confirming no generalization without additional fine-tuning.
 
