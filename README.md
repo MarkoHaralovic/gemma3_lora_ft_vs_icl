@@ -67,7 +67,7 @@ all results can be found in the article.
 | Reasoning (Mean) | 0 | 0.70 | - |
 | Reasoning (Mean) | 10 | 0.74 | +4% |
 
-### BERT Performance
+### BERT performance
 
 | Task | Dataset | Accuracy | F1 |
 |------|---------|----------|-----|
@@ -77,9 +77,9 @@ all results can be found in the article.
 | QA (DistilBERT) | SQuAD v2 | 0.67 EM | 0.71 |
 | QA (DistilBERT) | TriviaQA | 0.01 EM | 0.01 |
 
-## Inference Efficiency
+## Inference efficiency
 
-### Latency Comparison
+### Latency comparison
 
 | Model | Adapter | k | TPOT (ms) | Throughput (tps) | P50 Latency (ms) |
 |-------|---------|---|-----------|------------------|------------------|
@@ -91,7 +91,7 @@ all results can be found in the article.
 | Gemma3-4B | Base | 10 | 94.4 | 10.60 | 291.1 |
 | BERT | - | 0 | 0.3 | 3837.1 | 8.1 |
 
-### ICL Latency Overhead
+### ICL latency overhead
 
 | Model | Task | k=0→k=10 TPOT Increase | k=0→k=10 Throughput Decrease |
 |-------|------|------------------------|------------------------------|
@@ -119,13 +119,3 @@ LoRA adapters introduce negligible overhead (TPOT changes of -1.8% to -8.2%). In
 ### 4. BERT best at a single task
 
 BERT achieves 93.7% accuracy on AG News, outperforming all Gemma variants. However, it performs near random on other classification tasks (48.6% on SST-2, 39.8% on BoolQ) and reasoning tasks, confirming no generalization without additional fine-tuning.
-
-## Deployment consideration
-
-**Single-task production**: Use BERT/DistilBERT for maximum efficiency (190x faster than Gemma3-270M) and highest in-domain accuracy.
-
-**Multi-task systems**: Deploy base instruction-tuned Gemma3-4B with ICL (k=10) to preserve cross-domain generalization while achieving competitive performance.
-
-**Task-specific optimization**: Use LoRA adapters in multi-tenant serving for maximum in-domain quality, but expect 20% reasoning degradation on out-of-distribution queries.
-
-**Latency critical applications**: Minimize ICL context length. LoRA adds no inference overhead compared to base models.
